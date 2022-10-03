@@ -1,0 +1,17 @@
+body{
+    margin: 0;
+    background-color: rgb(38, 63, 63);
+    color: aliceblue;
+}
+.container-elementos{
+    max-width: 960px;
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.item-elementos ol{
+    display: block;
+    text-align: center;
+    margin: 0 auto;
+}

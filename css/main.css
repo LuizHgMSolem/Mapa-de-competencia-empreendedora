@@ -1,0 +1,66 @@
+body{
+    background-color: rgb(44, 43, 43);
+    color: whitesmoke;
+}
+.intro {
+    max-width: 960px;
+    margin: 0 auto;
+}
+.intro h2{
+    display: block;
+    margin: 10px;
+}
+.intro-info li{
+    max-width: 960px;
+    margin: 0 auto;
+}
+
+
+.container-mostrar{
+    max-width: 960px;
+    display: block;
+    margin: 0 auto;
+}
+
+.item-mostrar{
+    display: block;
+    margin: 0 auto;
+}
+
+#show_or_hide{
+    display: block;
+    padding: 10px;
+    background-color: rgb(113, 85, 91);
+    color: #FFF;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-align: center;
+    display: block;
+    margin: 0 auto;
+    cursor: pointer;
+}
+
+
+
+.container-formulario{
+    max-width: 960px;
+    display: block;
+    margin: 0 auto;
+}
+
+.item-formulario{
+    margin: 30px 10px;
+}
+
+.btn-enviar{
+display: block;
+padding: 10px;
+background-color: rgb(113, 85, 91);
+color: #FFF;
+font-size: 12px;
+text-transform: uppercase;
+text-align: center;
+display: block;
+margin: 0 auto;
+cursor: pointer;
+}
