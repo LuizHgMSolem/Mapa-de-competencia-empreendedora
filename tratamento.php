@@ -18,7 +18,6 @@ if (!empty($allDados[$i]) && $lendados == '85'){
 
 }
 
-var_dump(!!$_SESSION['dadosValidaos']) ; 
 
 if (isset($dados)) {
 
