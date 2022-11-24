@@ -1,0 +1,62 @@
+body{
+  background-color: #4F4F4F;
+  color: whitesmoke;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+
+
+.informacoes{
+  background-color: #414040;
+  display: block;
+  max-width: 960px;
+  margin: 0 auto;
+  padding-bottom: 10%;
+}
+
+.titulo{
+  display: block;
+}
+.titulo-container {
+  max-width: 960px;
+  margin: 0 auto;
+  background-color: #414040;
+  padding: 1px;
+  text-align: center;
+}
+.Apresentacao{
+  display: block;
+  max-width: 960px;
+  margin-left: 2em;
+}
+.aviso {
+  margin: 0 auto;
+}
+.Atencao{
+  
+  margin: 0 auto;
+  width: 250px;
+}
+.Atencao p{
+  margin: 0 auto;
+  width: 250px;
+  text-align: center;
+}
+.formulario{
+  display: block;
+  max-width: 960px;
+}
+.formulario-container{
+  width: 200px;
+  margin: 0 auto;
+}
+#questionario{
+display: block;
+padding: 10px;
+background-color: rgb(113, 85, 91);
+color: #FFF;
+font-size: 12px;
+text-transform: uppercase;
+text-align: center;
+cursor: pointer;
+}

@@ -1,4 +1,3 @@
-
 <?php
 session_start();
 
@@ -9,7 +8,7 @@ $dados = filter_input_array(INPUT_POST);
 
 foreach ($dados as $key => $value) {
   
-  if (!is_null($value) && count($dados) == '85'){
+  if (!is_null($value) && count($dados) == '86'){
     $_SESSION['dadosValidaos'] = true;
   }else {
     $_SESSION['dadosValidaos'] = false;
@@ -45,43 +44,88 @@ if ($_SESSION['dadosValidaos']){
 
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.0.1/dist/chart.umd.min.js"></script>
-<body>z 
-
-<canvas id="myChart" style="width:100%;max-width:900px; height:500px; margin:0 auto;"></canvas>
+<link rel="stylesheet" href="css/style.css">
+<body>
+<section class="grafico">
+    <div class="container_grafico">
+<canvas id="myChart" style="height:500px;"></canvas>
 
 <script>
+  
 var pergunta = ["tem iniciativa", "busco oportunidades", "Persistência", "Busca Informações", "Exigência de Qualidade", 
 "Cumprimento de contratos de trabalho", "Orientação para eficiência", "Orientação para objetivos", "Planejamento sistemático", 
 "Resolução de problemas", "Assertividades", "Autoconfiança", "Correr riscos moderados", "Uso da estratégia de influência",
-"Monitoramento", "Preocupação com gestões financeiras", "Fator de correção"
+"Monitoramento", "Preocupação com gestões financeiras"
 ];
+
 let resultado = [<?php echo $result[1]?>, <?=$result[2]?>, <?=$result[3]?>, <?=$result[4]?>, <?=$result[5]?>, 
 <?=$result[6]?>, <?=$result[7]?>, <?=$result[8]?>, <?=$result[9]?>, <?=$result[10]?>, <?=$result[11]?>, 
-<?=$result[12]?>, <?=$result[13]?>, <?=$result[14]?>, <?=$result[15]?>, <?=$result[16]?>, <?=$result[17]?> ];
-console.log(resultado);
-const ctx = document.getElementById('myChart');
+<?=$result[12]?>, <?=$result[13]?>, <?=$result[14]?>, <?=$result[15]?>, <?=$result[16]?> ];
+    
 
-new Chart(ctx, {
+    bordercolor ="rgb(71, 99, 43)";
+  
+    backgroundcolor="rgb(71, 99, 13)";
+
+
+
+
+function mostrarchart() {
+ const myChart = {
   type: 'line',
   data: {
     labels: pergunta,
     datasets: [{
-      label: '# of Votes',
-      data: resultado ,
-      borderWidth: 1
+      label: 'Mapa de Competência empreendedora',
+      backgroundColor: [
+                        `${backgroundcolor}`
+                      ],
+      borderColor:[
+                `${bordercolor}`
+                ],
+      data: resultado,
+    
+      borderWidth: 6 
     }]
   },
   options: {
+    indexAxis: 'y',
+    showLine: false,
+    
+
     scales: {
+     
       y: {
+        beginAtZero: true,
+       
+        
+      },
+      x: {
+        max: 25,
+        min: 5,
+       ticks:{
+        stepSize:1,
+       },
         beginAtZero: true
-      }
+      },
+      
+
     }
   }
-});
+};
+ 
+ctx = new Chart(document.getElementById('myChart'), myChart);
+
+
+console.log("resultado[1]");
+}
+mostrarchart()
 </script>
-<div>
-<br><br>
+<h3>Fator de correção <?= $result[17]?></h3>
+
+    </div>
+
+</section>
 
 <?php
 }else {

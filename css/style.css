@@ -1,17 +1,31 @@
 body{
     margin: 0;
-    background-color: rgb(38, 63, 63);
-    color: aliceblue;
+    background-color: #ededed;
+    color: black;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serifSS;
 }
-.container-elementos{
-    max-width: 960px;
+
+
+
+.grafico{
     display: block;
     margin: 0 auto;
+}
+.container_grafico{
+    display: block;
+    margin: 0 auto;
+    margin-top: 8vh;
+    max-width: 1200px;
+    min-width: 300px;
+}
+.container_grafico h3{
+    display: block;
     text-align: center;
 }
 
-.item-elementos ol{
-    display: block;
-    text-align: center;
-    margin: 0 auto;
+#myChart{
+    
+    width: 1200px;
+    max-width: 1200px;
+    min-width:  500px;
 }

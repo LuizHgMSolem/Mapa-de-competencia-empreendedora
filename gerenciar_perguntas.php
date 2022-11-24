@@ -29,7 +29,6 @@
 let pergutnasqtd = document.querySelectorAll(`[id^=perguntas-n]`)
 pergutnasqtd.forEach(function(pergunta, num, chaves) {
 num++
-perguntaUncica = pergunta.id
 
 
 
@@ -44,7 +43,7 @@ funcheck = $(`.blocopergunta${num}`).on('change', function() {
 	 check.not(this).attr('checked', false)
  }
 
-let checkedSelecionado = $("[id^='Nunca']").attr('checked', true)
+// let checkedSelecionado = $("[id^='Nunca']").attr('checked', true)
 		 
  let allChecked = document.querySelectorAll('[checked="checked"]')
 
@@ -87,51 +86,48 @@ if(($resultado_usuario) && ($resultado_usuario->num_rows != 0)){
 
 <form action="tratamento.php" method="POST">
 
-<section class="container-formulario">		
-	<div class="perguntas-formulario">
-
+	<div id="tituloformato">
+		<br>
+	<h2 id="titulo">Mapa de Competência empreendedora</h2>
+	</div>
+	<label for="nome" id="txtnome">Nome
+					<input type="text" name="Nome" id="nome">
+	</label>
 		<?php
-
-			while($row_usuario = mysqli_fetch_assoc($resultado_usuario)){
-		
-
+				while($row_usuario = mysqli_fetch_assoc($resultado_usuario)){
 				?>
-					
-					<?php 
-					$marcacao = 	array (
-						"Nunca" => 1,
-						"Raramente" => 2,
-						"Algumas_Vezes" => 3,
-						"Maioria_da_Vezes" => 4,
-						"Sempre" => 5,
-					);
-					?>
-			
+				<div class="bloco-Perguntas">
 					<h4 id="perguntas-n<?= $row_usuario['id']?>"><br/	>
 					<?php echo $row_usuario['id'];?>
 					<?php echo $row_usuario['pergunta'];?>
 					</h4>
-				
-				
-            	
-
 					
-					<div class="bloco_checkbox">	
-					<?php
+						<div class="bloco_checkbox">	
+
+						
+<?php 
+	$marcacao = 	array (
+		"Nunca" => 1,
+		"Raramente" => 2,
+		"Algumas_Vezes" => 3,
+		"Maioria_da_Vezes" => 4,
+		"Sempre" => 5,
+	);
+
 					foreach ($marcacao as $mark => $value) {
 						# code...
 					?>
 
-						<div class="perguntas_checkbox">
+								<div class="perguntas_checkbox">
 							<input type='checkbox' value='<?= $value?>' name='pergunta<?= $row_usuario["id"]?>' class='blocopergunta<?= $row_usuario["id"]?>' id='<?= $mark.$row_usuario["id"]?>' onclick='onlyone(this)'><label for='<?= $mark.$row_usuario["id"]?>'> <?= str_replace("_"," ",$mark); $mark?></label>
-						</div>
+								</div>
 				
 					<?php 
 					}
 					?>
-					</div>
-				
 					
+					</div>
+		</div>
 				<?php
 		$_SESSION["qtd_linhas_perg"] = $row_usuario["id"];
 				}
@@ -140,47 +136,15 @@ if(($resultado_usuario) && ($resultado_usuario->num_rows != 0)){
 		</div>
 			
 
-			<div class="item-formulario">
-
-			<button class="btn-enviar" type="submit" style="display:block" >enviar</button>
-			
-			</div>		
+		<div class="item-formulario">
+				<button class="btn-enviar" type="submit" style="display:block" >enviar</button>
+			</div>
 			
 		</section>
 </form>
 
 
-
-	
 <?php
-//Paginação - Somar a quantidade de usuários
-$result_pg = "SELECT COUNT(id) AS num_result FROM perguntas";
-$resultado_pg = mysqli_query($conn, $result_pg);
-$row_pg = mysqli_fetch_assoc($resultado_pg);
-
-//Quantidade de pagina
-$quantidade_pg = ceil($row_pg['num_result'] / $qnt_result_pg);
-
-//Limitar os link antes depois
-$max_links = 2;
-
-echo "<input type='button' value='Primeira' onclick='listar_usuario(1, $qnt_result_pg)'> ";
-
-for($pag_ant = $pagina - $max_links; $pag_ant <= $pagina - 1; $pag_ant++){
-	if($pag_ant >= 1){
-		echo " <input type='button' value='$pag_ant' onclick='listar_usuario($pag_ant, $qnt_result_pg)'> </a> ";
-	}
-}
-
-echo " $pagina ";
-
-for ($pag_dep = $pagina + 1; $pag_dep <= $pagina + $max_links; $pag_dep++) {
-	if($pag_dep <= $quantidade_pg){
-		echo " <input type='button' value='$pag_dep' onclick='listar_usuario($pag_dep, $qnt_result_pg)'></a> ";
-	}
-}
-
-echo " <input type=button value='última' onclick='listar_usuario($quantidade_pg, $qnt_result_pg)'>";
 }else{
 	echo "<div class='alert alert-danger' role='alert'>Nenhum usuário encontrado!</div>";
 }

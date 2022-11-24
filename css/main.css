@@ -1,24 +1,40 @@
 body{
-    background-color: rgb(44, 43, 43);
+    background-color: #4F4F4F;
     color: whitesmoke;
     
 }
-.intro {
+.container-formulario {
     max-width: 960px;
     margin: 0 auto;
 }
-.intro h2{
+.container-formulario #txtnome{
     display: block;
-    margin: 10px;
+    margin-left: 1.25rem;
 }
-.intro-info li{
+.container-formulario #txtnome #nome{
+    width: 95%;
+}
+
+.container-formulario li{
     max-width: 960px;
     margin: 0 auto;
 }
 .perguntas-formulario{
     display: block;
-    margin-left:50px;
-    
+    margin-left:1.25rem;
+    margin-top: 2%;
+    background-color: #666666;
+}
+#tituloformato{
+    margin-top: 40px;
+}
+.bloco-Perguntas{
+
+    margin-left:20px;
+}
+.perguntas-formulario h2{
+    display: block;
+   text-align: center;
 }
 
 .modal{
@@ -36,9 +52,13 @@ body{
     margin: 0 auto;
 }
 
+
 label{
     font-size: 1.20rem;
+}
 
+.bloco_checkbox{
+    margin-bottom: 2.5rem;
 }
 
 #show_or_hide{
@@ -53,7 +73,6 @@ label{
     margin: 0 auto;
     cursor: pointer;
 }
-
 
 
 .container-formulario{
